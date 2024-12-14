@@ -1,0 +1,49 @@
+[
+    {
+    "name": "Bat",
+  "brand": "SG",
+  "desc": ["Premium Willow Wood","Optimal Balance","Enhanced Sweet Spot"],
+  "price": 10000,
+  "discountedPrice": 9000,
+  "discountPercentage": 10,
+  "warranty": "2 years",
+  "category_name": "Bat",
+  "stock_quantity": 10,
+  "isFastDeliveryAvailable":true,
+  "img": "https://www.shutterstock.com/image-vector/illustration-cricket-bat-on-isolated-600nw-2452695663.jpg",
+  "rating": 5
+},
+{
+    "name": "Ball",
+    "brand": "Kookaburra",
+    "desc": ["Hard Tennis Ball",
+      "Soft Tennis Ball",
+      "Synthetic Practice Ball"],
+    "price": 12000,
+    "discountedPrice": 10800,
+    "discountPercentage": 10,
+    "warranty": "1 years",
+    "category_name": "ball",
+    "stock_quantity": 10,
+    "isFastDeliveryAvailable":true,
+    "img": "https://media.istockphoto.com/id/157181750/photo/new-leather-cricket-ball-against-white.jpg?s=1024x1024&w=is&k=20&c=hgClTdktc9j_lmLy5j0trAgz2PbU6ulkpwOrqPdRYxk=",
+    "rating": 5
+},
+{
+    "name": "Helmet",
+    "brand": "SG",
+    "desc": ["Full faceguard",
+      "Basic padding",
+      "Affordable",
+      "Lightweight"],
+    "price": 11000,
+    "discountedPrice": 9900,
+    "discountPercentage": 10,
+    "warranty": "3 years",
+    "category_name": "Cricket Helmet",
+    "stock_quantity": 10,
+    "isFastDeliveryAvailable":true,
+    "img": "https://media.istockphoto.com/id/1307147268/vector/realistic-3d-black-cricket-helmet-mockup-isolated-on-white-background-front-and-side-two.jpg?s=1024x1024&w=is&k=20&c=bJRr8SNBaA4k98IarLYH5xZbY7Zmrwj97P9DPjZEONM=",
+    "rating": 5
+}
+]
