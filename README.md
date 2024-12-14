@@ -1,5 +1,7 @@
 # cricGear
-An eCommerce App containing various cricket products.]\ Key Features
+An eCommerce App containing various cricket products.
+
+Key Features
 
 User can view single product descriptions by clicking on them
 User can add the products to cart.
