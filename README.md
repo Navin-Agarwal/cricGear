@@ -9,8 +9,3 @@ User can increase the quantity of the product in the cart from product listing p
 User can add products to the wishlist
 User can sort and filter the products according to category, price, delivery options.
 User can search for specific products through search bar
-
-
-hello
-
-world
