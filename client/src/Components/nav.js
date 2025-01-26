@@ -79,7 +79,7 @@ export const Navigation = () => {
               to='/'>
               <div className='logo-details'>
                 <FontAwesomeIcon icon={faFutbol} className='logo' />
-                <span className='logo-text'>CRICMART</span>
+                <span className='logo-text'>CRICGEAR</span>
               </div>
             </NavLink>
           </div>
