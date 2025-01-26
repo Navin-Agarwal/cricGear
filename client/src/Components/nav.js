@@ -26,8 +26,8 @@ export const Navigation = () => {
   const menuBtn = useRef(null);
   const navigate = useNavigate();
 
-  const wishlist_count = wishList.length ? wishList.length : null;
-  const cart_count = cartItems.length ? cartItems.length : null;
+  const wishlist_count = wishList?.length ? wishList.length : null;
+  const cart_count = cartItems?.length ? cartItems.length : null;
   useEffect(() => {
     document.addEventListener("click", (e) => {
       if (
