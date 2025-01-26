@@ -12,7 +12,25 @@ passport.use(new LocalStrategy(Users.authenticate()));
 const bodyParser = require("body-parser");
 const PORT = 5000;
 const cors = require("cors");
-app.use(cors());
+// app.use(cors());
+const allowedDomains = ['http://localhost:3000', 'https://cricgear.netlify.app'];
+
+// CORS configuration
+const corsOptions = {
+  origin: (origin, callback) => {
+    // If the origin is in the allowed list or if there's no origin (e.g., a non-browser client)
+    if (allowedDomains.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);  // Allow the request
+    } else {
+      callback(new Error('Not allowed by CORS'));  // Reject the request
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+// Enable CORS with the specified options
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 const { MongoConnection } = require("./MongoDb/db.connect");
 
