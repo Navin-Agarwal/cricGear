@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://cric-gear.vercel.app/",
+  baseURL: "https://cricgear.netlify.app/",
 });
 
 const callServer = async ({ url, type, body }) => {
