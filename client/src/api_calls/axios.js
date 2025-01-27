@@ -1,7 +1,15 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "https://cric-gear.vercel.app/",
+  baseURL: process.env.REACT_APP_API_URL,
+  withCredentials: true,  // Add this if using credentials
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "*",
+    "Access-Control-Allow-Headers": "*",
+  },
 });
 
 const callServer = async ({ url, type, body }) => {

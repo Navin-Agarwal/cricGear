@@ -13,24 +13,24 @@ const bodyParser = require("body-parser");
 const PORT = 5000;
 const cors = require("cors");
 // app.use(cors());
-const allowedDomains = ['http://localhost:3000', 'https://cricgear.netlify.app'];
+const allowedDomains = ['http://localhost:3000', 'https://monumental-bublanina-fc9cc6.netlify.app'];
 
-// CORS configuration
 const corsOptions = {
   origin: (origin, callback) => {
-    // If the origin is in the allowed list or if there's no origin (e.g., a non-browser client)
     if (allowedDomains.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);  // Allow the request
+      callback(null, true); // Allow the request
     } else {
-      callback(new Error('Not allowed by CORS'));  // Reject the request
+      callback(new Error('Not allowed by CORS'));
     }
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 };
 
-// Enable CORS with the specified options
 app.use(cors(corsOptions));
+app.options('*', cors(corsOptions)); // Pre-flight request handling
+
 app.use(bodyParser.json());
 const { MongoConnection } = require("./MongoDb/db.connect");
 

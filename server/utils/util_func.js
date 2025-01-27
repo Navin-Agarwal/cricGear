@@ -88,6 +88,7 @@ const getCartAndWishlist = async (req, res, next) => {
 };
 
 const saveUserToDataBase = (req, res, next) => {
+  console.log(req.body)
   const { firstname, lastname, email, username, password } = req.body;
   const user = new Users({ firstname, lastname, email, username });
   Users.register(user, password, (err, user) => {
