@@ -2,7 +2,8 @@ import axios from "axios";
 
 const instance = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
-  withCredentials: true,  // Add this if using credentials
+  // baseURL: "http://localhost:5000/",
+  // withCredentials: true,  // Add this if using credentials
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",

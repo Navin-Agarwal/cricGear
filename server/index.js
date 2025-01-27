@@ -12,10 +12,7 @@ passport.use(new LocalStrategy(Users.authenticate()));
 const bodyParser = require("body-parser");
 const PORT = 5000;
 const cors = require("cors");
-app.use(cors({
-  origin: "*",
-  // credentials: true,
-}));
+app.use(cors());
 // // app.use(cors());
 // const allowedDomains = ['http://localhost:3000', 'https://monumental-bublanina-fc9cc6.netlify.app'];
 
