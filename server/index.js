@@ -12,6 +12,7 @@ passport.use(new LocalStrategy(Users.authenticate()));
 const bodyParser = require("body-parser");
 const PORT = 5000;
 const cors = require("cors");
+
 // app.use(cors());
 const allowedDomains = ['http://localhost:3000', 'https://monumental-bublanina-fc9cc6.netlify.app'];
 
@@ -28,8 +29,11 @@ const corsOptions = {
   credentials: true,
 };
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions)); // Pre-flight request handling
+app.use(cors({
+  origin: "*",
+  credentials: true,
+}));
+// app.options('*', cors(corsOptions)); 
 
 app.use(bodyParser.json());
 const { MongoConnection } = require("./MongoDb/db.connect");

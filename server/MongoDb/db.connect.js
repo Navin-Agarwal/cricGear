@@ -1,8 +1,8 @@
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 dotenv.config();
-const username = process.env.USER_NAME;
-const password = process.env.PASSWORD;
+const username = "navin";
+const password = "navin1234";
 const uri = `mongodb+srv://${username}:${password}@cluster0.l3epn.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 const MongoConnection = async () => {
   try {
