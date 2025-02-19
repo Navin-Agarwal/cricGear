@@ -12,25 +12,29 @@ passport.use(new LocalStrategy(Users.authenticate()));
 const bodyParser = require("body-parser");
 const PORT = 5000;
 const cors = require("cors");
-app.use(cors());
-// // app.use(cors());
-// const allowedDomains = ['http://localhost:3000', 'https://monumental-bublanina-fc9cc6.netlify.app'];
 
-// const corsOptions = {
-//   origin: (origin, callback) => {
-//     if (allowedDomains.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true); // Allow the request
-//     } else {
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization'],
-//   credentials: true,
-// };
+// Uncomment and update the CORS configuration
+const allowedDomains = [
+  "http://localhost:3000",
+  "https://imaginative-tartufo-eb1c95.netlify.app/",
+  // Add any other frontend domains you need to allow
+];
 
-// app.use(cors(corsOptions));
-// app.options('*', cors(corsOptions)); // Pre-flight request handling
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (allowedDomains.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 
 app.use(bodyParser.json());
 const { MongoConnection } = require("./MongoDb/db.connect");
