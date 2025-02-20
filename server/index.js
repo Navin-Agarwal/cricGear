@@ -17,12 +17,12 @@ const cors = require("cors");
 const allowedDomains = [
   "http://localhost:3000",
   "https://imaginative-tartufo-eb1c95.netlify.app/",
-  
+
   // Add any other frontend domains you need to allow
 ];
 
 const corsOptions = {
-  origin: ["https://cric-gear-oihj.vercel.app", "http://localhost:3000"], // Frontend URLs
+  origin: ["https://cric-gear-fkvm.vercel.app/", "http://localhost:3000"], // Frontend URLs
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: [
     "Content-Type",
@@ -40,6 +40,27 @@ const corsOptions = {
 // // Add this before your routes
 // app.options("*", cors(corsOptions));
 
+app.use((req, res, next) => {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://cric-gear-fkvm.vercel.app"
+  );
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+
+  // Handle OPTIONS method
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  next();
+});
+
+// Remove previous cors configuration and keep your other middleware
 app.use(bodyParser.json());
 const { MongoConnection } = require("./MongoDb/db.connect");
 
