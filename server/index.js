@@ -13,44 +13,24 @@ const bodyParser = require("body-parser");
 const PORT = 5000;
 const cors = require("cors");
 
-// Uncomment and update the CORS configuration
-const allowedDomains = [
-  "http://localhost:3000",
-  "https://imaginative-tartufo-eb1c95.netlify.app/",
-
-  // Add any other frontend domains you need to allow
-];
-
 const corsOptions = {
-  origin: ["https://cric-gear-fkvm.vercel.app/", "http://localhost:3000"], // Frontend URLs
+  origin: "*", // Allow all origins
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: [
-    "Content-Type",
-    "Authorization",
-    "Origin",
-    "Accept",
-    "X-Requested-With",
-  ],
+  allowedHeaders: "*", // Allow all headers
   credentials: true,
-  optionsSuccessStatus: 200,
+  optionsSuccessStatus: 200
 };
 
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
-// // Add this before your routes
-// app.options("*", cors(corsOptions));
+// Add this before your routes
+app.options("*", cors(corsOptions));
 
 app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://cric-gear-fkvm.vercel.app"
-  );
+  res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
   res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-  );
+  res.header("Access-Control-Allow-Methods", "*"); // Allow all methods
+  res.header("Access-Control-Allow-Headers", "*"); // Allow all headers
 
   // Handle OPTIONS method
   if (req.method === "OPTIONS") {
