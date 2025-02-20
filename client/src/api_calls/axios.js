@@ -1,9 +1,10 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_API_URL,
+  // baseURL: "https://cricgearnavin-dp3vzurw8-navin-agarwals-projects.vercel.app/",
   // baseURL: "http://localhost:5000/",
-  // withCredentials: true,  // Add this if using credentials
+  baseURL: "https://cric-gear-oihj.vercel.app/",
+  withCredentials: true, // Enable this for authentication
   headers: {
     "Content-Type": "application/json",
     Accept: "application/json",
@@ -18,23 +19,22 @@ const callServer = async ({ url, type, body }) => {
     switch (type) {
       case "GET":
         const { data: getData } = await instance.get(url);
+        return getData;
 
-        if (getData.success) {
-          return getData;
-        }
-        break;
       case "POST":
         const { data: postData } = await instance.post(url, body);
-        console.log("Post Data",postData)
-        if (postData.success) {
-          return postData;
-        }
-        break;
+        return postData;
+
       default:
-        break;
+        throw new Error("Invalid request type");
     }
   } catch (error) {
-    return error;
+    console.error("API Error:", error);
+    return {
+      success: false,
+      message: error.response?.data?.message || error.message,
+    };
   }
 };
+
 export default callServer;

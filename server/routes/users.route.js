@@ -23,23 +23,21 @@ router.post(
   (req, res, next) => {
     passport.authenticate("local", (err, user) => {
       if (err) {
-        res.json({ success: false, message: err.message });
-      } else if (!user) {
-        res.json({
+        return res.status(500).json({ success: false, message: err.message });
+      }
+      if (!user) {
+        return res.status(401).json({
           success: false,
-          message: "Incorrect username or password ",
-        });
-      } else {
-        req.login(user, (err) => {
-          if (err) {
-            res.json({ success: false, message: err.message });
-          } else {
-            req.user = user;
-
-            next();
-          }
+          message: "Incorrect username or password",
         });
       }
+      req.login(user, (err) => {
+        if (err) {
+          return res.status(500).json({ success: false, message: err.message });
+        }
+        req.user = user;
+        next();
+      });
     })(req, res, next);
   },
   getCartAndWishlist
