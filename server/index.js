@@ -26,19 +26,6 @@ app.use(cors(corsOptions));
 // Add this before your routes
 app.options("*", cors(corsOptions));
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*"); // Allow all origins
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.header("Access-Control-Allow-Methods", "*"); // Allow all methods
-  res.header("Access-Control-Allow-Headers", "*"); // Allow all headers
-
-  // Handle OPTIONS method
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
-  }
-
-  next();
-});
 
 // Remove previous cors configuration and keep your other middleware
 app.use(bodyParser.json());
