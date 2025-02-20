@@ -35,10 +35,10 @@ const corsOptions = {
   optionsSuccessStatus: 200,
 };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
-// Add this before your routes
-app.options("*", cors(corsOptions));
+// // Add this before your routes
+// app.options("*", cors(corsOptions));
 
 app.use(bodyParser.json());
 const { MongoConnection } = require("./MongoDb/db.connect");
